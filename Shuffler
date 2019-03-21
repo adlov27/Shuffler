@@ -1,0 +1,46 @@
+/**
+ * Final class for Shuffler
+ *
+ * @Addison Loverin 3/18/19
+ */
+import java.util.ArrayList;
+public class LineList
+{
+    ArrayList<String> array = new ArrayList<String>();
+    public int size()
+    {
+        return array.size();
+    }
+    public String get(int k)
+    {
+        return array.get(k);
+    }
+    public void add(String line)
+    {
+        array.add(line); 
+    }
+    public String remove(int k)
+    {
+        String str = array.get(k);
+        array.remove(k);
+        return str;
+    }
+    public void move(int index, int newIndex)
+    {
+        String s = array.get(index);
+        array.remove(index);
+        array.add(index, s);
+    }
+    public void shuffle()
+    {
+        String temp = "";
+        for(int i = 0; i < array.size(); i++)
+        {
+            int n = (int)(Math.random() * array.size());
+            temp = array.get(n);
+            array.remove(n);
+            array.add((int)(Math.random() * array.size()),temp);
+            System.out.println(n);
+        }
+    }
+}
